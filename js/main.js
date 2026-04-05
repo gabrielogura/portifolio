@@ -151,7 +151,7 @@ document.addEventListener('click', () => {
       vy: (Math.random() - 0.5) * 0.35,
       r: Math.random() * 2 + 1.5,
       pulse: Math.random(),           // fase atual do pulso
-      pulseSpeed: PULSE_SPEED * (0.6 + Math.random() * 0.8),
+      pulseSpeed: PULSE_SPEED * (0.3 + Math.random() * 0.3),
     }));
 
     // Pulsos viajando pelas arestas
@@ -167,11 +167,7 @@ document.addEventListener('click', () => {
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < EDGE_DIST) {
           // chance de ter um pulso viajando
-          if (Math.random() < 0.15) {
-            edges.push({ i, j, dist, t: Math.random(), speed: PULSE_SPEED * (0.4 + Math.random()) });
-          } else {
-            edges.push({ i, j, dist, t: null });
-          }
+          edges.push({ i, j, dist, t: null });
         }
       }
     }
@@ -204,8 +200,8 @@ document.addEventListener('click', () => {
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
       ctx.lineTo(b.x, b.y);
-      ctx.strokeStyle = colorStr(ACCENT, alpha);
-      ctx.lineWidth = 0.6;
+      ctx.strokeStyle = colorStr(ACCENT, alpha * 2.5);
+      ctx.lineWidth = 0.8;
       ctx.stroke();
 
       // Pulso viajando
@@ -230,7 +226,7 @@ document.addEventListener('click', () => {
 
       // Halo
       const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, radius * 4);
-      g.addColorStop(0, colorStr(ACCENT, 0.35 * glow));
+      g.addColorStop(0, colorStr(ACCENT, 0.04 * glow));
       g.addColorStop(1, colorStr(ACCENT, 0));
       ctx.beginPath();
       ctx.arc(n.x, n.y, radius * 4, 0, Math.PI * 2);
