@@ -125,7 +125,7 @@ document.addEventListener('click', () => {
 
   let W, H, nodes, edges;
   const NODE_COUNT = window.innerWidth < 768 ? 18 : 38;
-  const EDGE_DIST  = window.innerWidth < 768 ? 100 : 180;
+  const EDGE_DIST  = window.innerWidth < 768 ? 70 : 180;
   const PULSE_SPEED = 0.012;
 
   const ACCENT  = { r: 124, g: 106, b: 245 }; // roxo
@@ -163,7 +163,11 @@ document.addEventListener('click', () => {
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < EDGE_DIST) {
           // chance de ter um pulso viajando
-          edges.push({ i, j, dist, t: null });
+          if (Math.random() < 0.08) {
+            edges.push({ i, j, dist, t: Math.random(), speed: PULSE_SPEED * (0.2 + Math.random() * 0.3) });
+          } else {
+            edges.push({ i, j, dist, t: null });
+          }
         }
       }
     }
