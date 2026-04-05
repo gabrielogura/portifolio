@@ -6,6 +6,7 @@
 }
 
 :root {
+  color-scheme: only light;
   --bg:       #0d0d14;
   --surface:  #13131d;
   --surface2: #1c1c2a;
@@ -17,6 +18,7 @@
 }
 
 html {
+  forced-color-adjust: none;
   scroll-behavior: smooth;
 }
 
