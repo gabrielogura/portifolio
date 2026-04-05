@@ -187,6 +187,15 @@ strong { color: var(--text); }
   background-clip: text;
 }
 
+@media (prefers-color-scheme: dark) {
+  .word-gradient {
+    background: linear-gradient(110deg, #c4beff 0%, #5ef0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
 .word-plain {
   color: var(--text);
   -webkit-text-fill-color: var(--text);
