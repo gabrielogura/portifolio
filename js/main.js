@@ -132,8 +132,12 @@ document.addEventListener('click', () => {
   const ACCENT2 = { r:  79, g: 209, b: 197 }; // ciano
 
   function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
+    W = canvas.width  = window.innerWidth * dpr;
+    H = canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.scale(dpr, dpr);
     init();
   }
 
