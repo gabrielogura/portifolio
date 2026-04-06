@@ -124,8 +124,8 @@ document.addEventListener('click', () => {
   const ctx = canvas.getContext('2d');
 
   let W, H, nodes, edges;
-  const NODE_COUNT = window.innerWidth < 768 ? 18 : 38;
-  const EDGE_DIST  = window.innerWidth < 768 ? 70 : 180;
+  const NODE_COUNT = window.innerWidth < 768 ? 12 : 38;
+  const EDGE_DIST  = window.innerWidth < 768 ? 45 : 180;
   const PULSE_SPEED = 0.012;
 
   const ACCENT  = { r: 124, g: 106, b: 245 }; // roxo
